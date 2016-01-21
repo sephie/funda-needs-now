@@ -12,6 +12,7 @@ src/assets/grunticon.loader.js
 *.iml
 *.sublime-*
 *.log
+.sass-cache/
 
 # NuGet packages
 nuget_packages
