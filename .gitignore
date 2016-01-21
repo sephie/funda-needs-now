@@ -1,0 +1,29 @@
+# vendor packages
+dist
+node_modules
+npm-debug.log
+tmp/
+
+src/assets/preview.html
+src/assets/grunticon.loader.js
+
+# project meta
+.idea
+*.iml
+*.sublime-*
+*.log
+
+# NuGet packages
+nuget_packages
+
+# MSBuild output
+[Bb]in
+[Oo]bj
+
+# Visual Studio
+*.suo
+*.user
+
+.DS_Store
+src/components/makelaar-ads/makelaar-ads.html.orig
+*.orig
