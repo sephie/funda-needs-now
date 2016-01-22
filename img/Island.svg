@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="804px" height="521px" viewBox="0 0 804 521" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Island</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-380.000000, -148.000000)">
+            <g id="Island" sketch:type="MSLayerGroup" transform="translate(380.000000, 148.000000)">
+                <path d="M410.429908,16.2760185 L0.338226962,255.026646 L401.789173,520.995592 L803.352566,254.860934 L410.429908,16.2760185 Z" id="Path-102-Copy" fill="#A9DA2E" sketch:type="MSShapeGroup"></path>
+                <path d="M410.429908,0.276018494 L0.338226962,239.026646 L401.789173,504.995592 L803.352566,238.860934 L410.429908,0.276018494 Z" id="Path-102" fill="#9FCE2A" sketch:type="MSShapeGroup"></path>
+                <path d="M401.979073,503.870693 L401.979073,520.702625 L803.167228,254.315536 L803.167228,238.297328 L401.979073,503.870693 Z" id="Path-104" fill="#8FB727" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

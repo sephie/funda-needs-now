@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="50px" viewBox="0 0 32 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 48 + Path 49 + Path 50</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-1021.000000, -303.000000)">
+            <g id="Path-48-+-Path-49-+-Path-50" sketch:type="MSLayerGroup" transform="translate(1021.000000, 303.000000)">
+                <path d="M1.28524891,37.5526573 L12.276993,44.8267583 L30.6920978,33.8061625 C30.6920978,33.8061625 32.7351858,24.2408488 29.7180631,15.3433561 C29.7180637,15.3433561 28.1331408,10.8528709 25.8203851,6.22351297 C25.8203861,6.22351297 27.4180022,5.58492776 27.4180022,5.58492776 L27.5641844,4.07117306 L29.318755,3.26524775 L28.2974033,0.780920468 L26.9806098,0 L3.82651029,5.74226593 L1.53914423,8.99635767 L0,13.0602216 L1.28524891,37.5526573 Z" id="Path-48" stroke="#DCB98B" stroke-width="2" fill="#F0CC9C" sketch:type="MSShapeGroup"></path>
+                <path d="M12.1600327,43.8551836 C12.1600327,43.8551836 13.4991382,31.9392396 12.1600326,27.0475239 C10.820927,22.1558081 4.22541903,9.98960494 4.22541903,9.98960494 C4.22541903,9.98960494 3.86656283,7.4296677 4.64709859,6.40446912" id="Path-49" stroke="#DDB98B" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                <path d="M25.0210443,5.95976761 L5.05217704,10.7714687" id="Path-50" stroke="#DDB98B" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                <g id="apple" transform="translate(8.000000, 38.000000)" sketch:type="MSShapeGroup">
+                    <ellipse id="Oval-4" fill="#BF1919" cx="7" cy="6" rx="7" ry="6"></ellipse>
+                    <path d="M7,12 C10.8659932,12 14,9.3137085 14,6 C14,2.6862915 12.3265262,3.03523168 8.89844894,6 C5.47037172,8.96476832 0,5.99999997 0,6 C0,9.3137085 3.13400675,12 7,12 Z" id="Oval-4-Copy" fill="#920A0A"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
