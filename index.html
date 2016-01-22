@@ -17,23 +17,35 @@
 		<div class="container">
 			<div class="goodies-wrapper">
 				<div id="goodies" class="goodies clearfix">
-					<div class="goodies__item"><img src="img/backpack.png" alt=""></div>
-					<div class="goodies__item"><img src="img/meal.png" alt=""></div>
-					<div class="goodies__item"><img src="img/emergencyblankets.png" alt=""></div>
-					<div class="goodies__item"><img src="img/firewood.png" alt=""></div>
-					<div class="goodies__item"><img src="img/money.png" alt=""></div>
-					<div class="goodies__item"><img src="img/poncho.png" alt=""></div>
-					<div class="goodies__item"><img src="img/sleepingbag.png" alt=""></div>
-					<div class="goodies__item"><img src="img/trash.png" alt=""></div>
-					<div class="goodies__item"><img src="img/tent.png" alt=""></div>
-					<div class="goodies__item"><img src="img/tipjar.png" alt=""></div>
-					<div class="goodies__item"><img src="img/solarlight.png" alt=""></div>
-					<div class="goodies__item"><img src="img/ontbijt.png" alt=""></div>
+					<div class="goodies__item" data-item="tent"><img src="img/tent.png" alt=""></div>
+					<div class="goodies__item" data-item="firewood"><img src="img/firewood.png" alt=""></div>
+					<div class="goodies__item" data-item="sleepingbag"><img src="img/sleepingbag.png" alt=""></div>
+					<div class="goodies__item" data-item="trash"><img src="img/trash.png" alt=""></div>
+					<div class="goodies__item" data-item="tafel"><img src="img/biertafel.png" alt=""></div>
+					<div class="goodies__item" data-item="meal"><img src="img/meal.png" alt=""></div>
+					<div class="goodies__item" data-item="emergencyblanket"><img src="img/emergencyblankets.png" alt=""></div>
+					<div class="goodies__item" data-item="solarlight"><img src="img/solarlight.png" alt=""></div>
+					
+
+<!-- 					<div class="goodies__item" data-item="backpack"><img src="img/backpack.png" alt=""></div>
+					<div class="goodies__item" data-item="money"><img src="img/money.png" alt=""></div>
+					<div class="goodies__item" data-item="poncho"><img src="img/poncho.png" alt=""></div>
+					<div class="goodies__item" data-item="ontbijt"><img src="img/ontbijt.png" alt=""></div> -->
 				</div>
 			</div>
 		</div><!-- /container -->
 		<div id="drop-area" class="drop-area">
-			<div class="drop-area__camp"><img src="img/world.png" alt=""></div>
+			<div class="drop-area__camp">
+				<div class="pin tent"><img src="img/d-tent.png" alt=""></div>
+				<div class="pin firewood"><img src="img/d-firewood.png" alt=""></div>
+				<div class="pin trash"><img src="img/d-trash.png" alt=""></div>
+				<div class="pin sleepingbag"><img src="img/d-sleepingbag.png" alt=""></div>
+				<div class="pin tafel"><img src="img/d-tafel.png" alt=""></div>
+				<div class="pin meal"><img src="img/d-meal.png" alt=""></div>
+				<div class="pin emergencyblanket"><img src="img/d-emergencyblanket.png" alt=""></div>
+				<div class="pin solarlight"><img src="img/d-solarlight.png" alt=""></div>
+				<img src="img/camp.png" alt="">
+			</div>
 			<div class="drop-area__status">
 				<ul>
 					<li>1x Solar light</li>
@@ -46,13 +58,6 @@
 			<div class="drop-area__lesvos">
 				<h3>Lesvos</h3>
 				<p>Vrijdag, 22.01.2016</p>
-				<ul>
-					<li>1x Solar light</li>
-					<li>1x Sleeping bag</li>
-					<li>1x Tent</li>
-					<li class="total">71 EUR</li>
-				</ul>
-				<a href="" class="donate">Donate now!</a>
 			</div>
 		</div>
 		<div class="drop-overlay"></div>
@@ -61,6 +66,7 @@
 		<script>
 			(function() {
 				var body = document.body,
+					dropEl = document.getElementsByClassName( 'goodies__item' ),
 					dropArea = document.getElementById( 'drop-area' ),
 					droppableArr = [], dropAreaTimeout;
 
@@ -68,12 +74,15 @@
 				[].slice.call( document.querySelectorAll( '#drop-area .drop-area__camp' )).forEach( function( el ) {
 					droppableArr.push( new Droppable( el, {
 						onDrop : function( instance, draggableEl ) {
+							var getGood = draggableEl.getAttribute('data-item');
+							
 							// show checkmark inside the droppabe element
 							classie.add( instance.el, 'drop-feedback' );
-							clearTimeout( instance.checkmarkTimeout );
-							instance.checkmarkTimeout = setTimeout( function() { 
-								classie.remove( instance.el, 'drop-feedback' );
-							}, 800 );
+							// clearTimeout( instance.checkmarkTimeout );
+							// instance.checkmarkTimeout = setTimeout( function() { 
+							// 	classie.remove( instance.el, 'drop-feedback' );
+							// }, 800 );
+							classie.add( instance.el, getGood);
 							// ...
 						}
 					} ) );
@@ -93,16 +102,16 @@
 						},
 						onEnd : function( wasDropped ) {
 							var afterDropFn = function() {
-								// hide dropArea
 								classie.remove( dropArea, 'show' );
-								// remove class 'drag-active' from body
 								classie.remove( body, 'drag-active' );
+								$('.drop-area__camp ').addClass(getData);
 							};
 
 							if( !wasDropped ) {
 								afterDropFn();
 							}
 							else {
+
 								// after some time hide drop area and remove class 'drag-active' from body
 								clearTimeout( dropAreaTimeout );
 								dropAreaTimeout = setTimeout( afterDropFn, 400 );

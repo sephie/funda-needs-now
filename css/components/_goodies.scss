@@ -90,10 +90,76 @@
 	// transform: translate3d(0,20px,0);
 }
 
+.drop-area__lesvos {
+	position: absolute;
+	top: rem(16px);
+	right: rem(24px);
+	h3, p {
+		margin: 0;
+	}
+}
+.pin {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.tent {
+	top: 100px;
+	left: 100px;
+	@at-root .tent & { opacity: 1; }
+}
+
+.firewood {
+	top: 100px;
+	left: 269px;
+	@at-root .firewood & { opacity: 1; }
+}
+
+.trash {
+	top: 240px;
+	left: 105px;
+	@at-root .trash & { opacity: 1; }
+}
+
+.sleepingbag {
+	top: 88px;
+	left: 369px;
+	@at-root .sleepingbag & { opacity: 1; }
+}
+
+.meal {
+	top: 154px;
+	right: 41px;
+	z-index: 2;
+	@at-root .meal & { opacity: 1; }
+}
+
+.tafel {
+	top: 161px;
+	right: 41px;
+	z-index: 1;
+	@at-root .tafel & { opacity: 1; }
+}
+
+.emergencyblanket {
+	top: 217px;
+	left: 300px;
+	z-index: 2;
+	@at-root .emergencyblanket & { opacity: 1; }
+}
+
+.solarlight {
+	bottom: 250px;
+	right: 300px;
+	z-index: 1;
+	@at-root .solarlight & { opacity: 1; }
+}
+
 .drop-area__status {
 	position: fixed;
 	bottom: rem(16px);
-	right: rem(16px);
+	right: rem(24px);
 	ul { 
 		padding: 0; margin: 0; 
 		border-radius: 3px; 
@@ -146,12 +212,12 @@
 // }
 
 .drop-area__camp {
-	width: 707px;
-	height: 457px;
+	width: 827px;
+	height: 576px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -228px;
+	margin-top: -288px;
 	margin-left: -250px;
 	display: inline-block;
 	-webkit-transition: -webkit-transform 0.3s, background 0.3s;

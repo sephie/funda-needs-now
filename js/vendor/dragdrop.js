@@ -242,6 +242,8 @@
           classie.remove( instance.element, 'is-dropped' );
         } );
       }, 25 );
+      
+      // $('.drop-area__camp').addClass('dropped');
     }
 
     // move back with animation - track if the element moved away from its initial position or if it was dropped in a droppable element
