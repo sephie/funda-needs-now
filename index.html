@@ -25,7 +25,7 @@
 					<div class="goodies__item" data-item="meal"><img src="img/meal.png" alt=""></div>
 					<div class="goodies__item" data-item="emergencyblanket"><img src="img/emergencyblankets.png" alt=""></div>
 					<div class="goodies__item" data-item="solarlight"><img src="img/solarlight.png" alt=""></div>
-					
+
 
 <!-- 					<div class="goodies__item" data-item="backpack"><img src="img/backpack.png" alt=""></div>
 					<div class="goodies__item" data-item="money"><img src="img/money.png" alt=""></div>
@@ -47,10 +47,9 @@
 				<img src="img/camp.png" alt="">
 			</div>
 			<div class="drop-area__status">
+				<ul class="item-list">
+				</ul>
 				<ul>
-					<li>1x Solar light</li>
-					<li>1x Sleeping bag</li>
-					<li>1x Tent</li>
 					<li class="total">71 EUR</li>
 				</ul>
 				<a href="" class="donate">Donate now!</a>
@@ -68,7 +67,8 @@
 				var body = document.body,
 					dropEl = document.getElementsByClassName( 'goodies__item' ),
 					dropArea = document.getElementById( 'drop-area' ),
-					droppableArr = [], dropAreaTimeout;
+					droppableArr = [], dropAreaTimeout,
+					itemList = document.getElementsByClassName('item-list')[0];
 
 				// initialize droppables
 				[].slice.call( document.querySelectorAll( '#drop-area .drop-area__camp' )).forEach( function( el ) {
@@ -83,6 +83,8 @@
 							// 	classie.remove( instance.el, 'drop-feedback' );
 							// }, 800 );
 							classie.add( instance.el, getGood);
+							itemList.innerHTML += '<li>1x ' + getGood + '</li>';
+							
 							// ...
 						}
 					} ) );
@@ -104,7 +106,7 @@
 							var afterDropFn = function() {
 								classie.remove( dropArea, 'show' );
 								classie.remove( body, 'drag-active' );
-								$('.drop-area__camp ').addClass(getData);
+//								$('.drop-area__camp ').addClass(getData);
 							};
 
 							if( !wasDropped ) {
