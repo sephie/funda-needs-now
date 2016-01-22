@@ -1,29 +1,96 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>funda Needs Now</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Funda awesome project</title>
+		<meta name="description" content="Funda awesome project" />
+		<meta name="keywords" content="Funda awesome project" />
+		<meta name="author" content="FundaAwesomePeople" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<script src="js/vendor/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="goodies-wrapper">
+				<div id="goodies" class="goodies clearfix">
+					<div class="goodies__item"><img src="img/backpack.png" alt=""></div>
+					<div class="goodies__item"><img src="img/meal.png" alt=""></div>
+					<div class="goodies__item"><img src="img/emergencyblankets.png" alt=""></div>
+					<div class="goodies__item"><img src="img/firewood.png" alt=""></div>
+					<div class="goodies__item"><img src="img/money.png" alt=""></div>
+					<div class="goodies__item"><img src="img/poncho.png" alt=""></div>
+					<div class="goodies__item"><img src="img/sleepingbag.png" alt=""></div>
+					<div class="goodies__item"><img src="img/trash.png" alt=""></div>
+					<div class="goodies__item"><img src="img/tent.png" alt=""></div>
+					<div class="goodies__item"><img src="img/tipjar.png" alt=""></div>
+					<div class="goodies__item"><img src="img/solarlight.png" alt=""></div>
+					<div class="goodies__item"><img src="img/ontbijt.png" alt=""></div>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<div id="drop-area" class="drop-area">
+			<div class="drop-area__camp one"><img src="img/world.png" alt=""></div>
+		</div>
+		<div class="drop-overlay"></div>
+		<script src="js/vendor/draggabilly.pkgd.min.js"></script>
+		<script src="js/vendor/dragdrop.js"></script>
+		<script>
+			(function() {
+				var body = document.body,
+					dropArea = document.getElementById( 'drop-area' ),
+					droppableArr = [], dropAreaTimeout;
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+				// initialize droppables
+				[].slice.call( document.querySelectorAll( '#drop-area .drop-area__camp' )).forEach( function( el ) {
+					droppableArr.push( new Droppable( el, {
+						onDrop : function( instance, draggableEl ) {
+							// show checkmark inside the droppabe element
+							classie.add( instance.el, 'drop-feedback' );
+							clearTimeout( instance.checkmarkTimeout );
+							instance.checkmarkTimeout = setTimeout( function() { 
+								classie.remove( instance.el, 'drop-feedback' );
+							}, 800 );
+							// ...
+						}
+					} ) );
+				} );
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/app.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <!-- Add your site or application content here -->
-        <h1>funda & Refugee Needs Now</h1>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+				// initialize draggable(s)
+				[].slice.call(document.querySelectorAll( '#goodies .goodies__item' )).forEach( function( el ) {
+					new Draggable( el, droppableArr, {
+						draggabilly : { containment: document.body },
+						onStart : function() {
+							// add class 'drag-active' to body
+							classie.add( body, 'drag-active' );
+							// clear timeout: dropAreaTimeout (toggle drop area)
+							clearTimeout( dropAreaTimeout );
+							// show dropArea
+							classie.add( dropArea, 'show' );
+						},
+						onEnd : function( wasDropped ) {
+							var afterDropFn = function() {
+								// hide dropArea
+								classie.remove( dropArea, 'show' );
+								// remove class 'drag-active' from body
+								classie.remove( body, 'drag-active' );
+							};
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-    </body>
+							if( !wasDropped ) {
+								afterDropFn();
+							}
+							else {
+								// after some time hide drop area and remove class 'drag-active' from body
+								clearTimeout( dropAreaTimeout );
+								dropAreaTimeout = setTimeout( afterDropFn, 400 );
+							}
+						}
+					} );
+				} );
+			})();
+		</script>
+	</body>
 </html>

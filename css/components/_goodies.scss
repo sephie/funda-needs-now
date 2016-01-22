@@ -1,0 +1,239 @@
+// .goodies {
+// 	margin: 0 auto;
+// 	max-width: 50em;
+// 	padding: 0 1em;
+// }
+
+.goodies__item {
+	font-size: 2em;
+	display: inline-block;
+	margin: 0.2em 0.1em;
+	width: 3em;
+	height: 3em;
+	border-radius: 4px;
+	background: $color-white-wash;
+	color: #76737C;
+	text-align: center;
+	img {
+		max-width: 100%;
+	}
+}
+
+.goodies__item:hover {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.goodies__item:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.is-dragging {
+	background: #4e4c52;
+}
+
+.is-active {
+	z-index: 100;
+}
+
+.is-dropped {
+	opacity: 0;
+	-webkit-transform: scale3d(0.7,0.7,1) !important;
+	transform: scale3d(0.7,0.7,1) !important;
+}
+
+.is-complete {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s !important;
+	transition: opacity 0.3s, transform 0.3s !important;
+	-webkit-transform: scale3d(1,1,1) !important;
+	transform: scale3d(1,1,1) !important;
+}
+
+.animate {
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+// .drop-area {
+// 	position: fixed;
+// 	top: 100%;
+// 	left: 0;
+// 	z-index: 99;
+// 	width: 100%;
+// 	height: 17em;
+// 	background: #cc6055;
+// 	text-align: center;
+// 	-webkit-transition: -webkit-transform 0.5s cubic-bezier(0.6,0,0.4,1);
+// 	transition: transform 0.5s cubic-bezier(0.6,0,0.4,1);
+// 	-webkit-transform: translate3d(0,20px,0);
+// 	transform: translate3d(0,20px,0);
+// }
+.drop-area {
+	width: 77%;
+	margin-left: 23%;
+	min-height: 100%;
+	background: $color-white-wash;
+	// position: fixed;
+	// top: 100%;
+	// left: 0;
+	// z-index: 99;
+	// width: 100%;
+	// height: 17em;
+	// background: #cc6055;
+	// text-align: center;
+	// -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.6,0,0.4,1);
+	// transition: transform 0.5s cubic-bezier(0.6,0,0.4,1);
+	// -webkit-transform: translate3d(0,20px,0);
+	// transform: translate3d(0,20px,0);
+}
+
+// .drop-area.show {
+// 	-webkit-transform: translate3d(0,-100%,0);
+//   	transform: translate3d(0,-100%,0);
+// }
+
+// .drop-area > div {
+// 	width: 100%;
+// 	height: 100%;
+// 	-webkit-transition: -webkit-transform 0.4s 0.3s;
+// 	transition: transform 0.4s 0.3s;
+// 	-webkit-transform: translate3d(0,50%,0);
+// 	transform: translate3d(0,50%,0);
+// }
+
+// .drop-area.show > div {
+// 	-webkit-transform: translate3d(0,0,0);
+// 	transform: translate3d(0,0,0);
+// }
+
+.drop-area__camp {
+	width: 707px;
+	height: 457px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -228px;
+	margin-left: calc(353px - 23%);
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.3s, background 0.3s;
+	transition: transform 0.3s, background 0.3s;
+	-webkit-backface-visibility: hidden;
+	overflow: hidden;
+	img {
+		max-width: 100%;
+	}
+}
+
+.drop-area__camp.highlight {
+	svg { color: blue; }
+	-webkit-transform: scale3d(1.08,1.08,1);
+	transform: scale3d(1.08,1.08,1);
+}
+
+.drop-area__camp::before,
+.drop-area__camp::after {
+	position: absolute;
+	width: 100%;
+	color: $color-grey;
+	font-size: 1.5em;
+	margin-top: -0.35em;
+	font-family: FontAwesome;
+	pointer-events: none;
+}
+
+.drop-area__camp::before {
+	font-size: rem(50px);
+	content: '\f119';
+	top: 15%;
+	left: 10%;
+}
+
+.drop-feedback.drop-area__camp::before {
+	opacity: 0;
+	-webkit-transform: scale3d(0,0,1);
+	transform: scale3d(0,0,1);
+}
+
+.drop-area__camp::after {
+	top: 15%;
+	left: 10%;
+	color: $color-orange;
+	content: '\f118';
+	font-size: rem(60px);
+	margin-top: -0.5em;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: scale3d(2,2,1);
+	transform: scale3d(2,2,1);
+}
+
+.drop-feedback.drop-area__camp::after {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+.dummy,
+.dummy::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin: 0.25em 0;
+	height: 0.65em;
+	border-radius: 2px;
+	background: rgba(0,0,0,0.15);
+	-webkit-backface-visibility: hidden;
+}
+
+.dummy {
+	width: 90%;
+}
+
+.dummy::after {
+	width: 60%;
+	content: '';
+}
+
+// .drop-overlay {
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	background: rgba(0,0,0,0.3);
+// 	opacity: 0;
+// 	-webkit-transition: opacity 0.3s;
+// 	transition: opacity 0.3s;
+// 	pointer-events: none;
+// }
+
+.drop-area.show + .drop-overlay {
+	opacity: 1;
+}
+
+.helper {
+	position: absolute !important;
+	margin: 0;
+}
+
+@media screen and (max-width: 50em) {
+	.goodies__item {
+		font-size: 1.5em;
+	}
+	.drop-area {
+		font-size: 0.6em;
+	}
+}
+
+@media screen and (max-width: 25.5em) {
+	.goodies {
+		padding: 0 2em;
+	}
+	.goodies__item {
+		font-size: 1em;
+	}
+}
