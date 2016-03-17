@@ -1,4 +1,4 @@
-# funda and Refugee Needs Now
+# f & RNNow
 
 *"In the Mood to Do Good"*
 
